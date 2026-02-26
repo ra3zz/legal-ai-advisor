@@ -16,6 +16,7 @@ from database.models import Document
 from services.groq_service import embed_text, chat_with_doc
 from services.rag_service import RAGService
 from services.graph_service import graph_service
+from services.agent_service import LegalAgentCodigoTrabajo
 import numpy as np
 
 # Colores para terminal
@@ -37,8 +38,11 @@ class CLIChat:
         self.db = SessionLocal()
         self.documents = []
         self.history = []
+        self.agent = None
+        self.loaded_graphs = {}  # {nombre: ruta}
         self.load_documents()
         self.load_knowledge_graph()
+        self.load_agent()
     
     def load_knowledge_graph(self):
         """Cargar grafo de conocimiento si existe"""
@@ -58,6 +62,26 @@ class CLIChat:
                     return
         
         print(f"{Colors.YELLOW}⚠️  Grafo no encontrado (búsqueda será sin grafo){Colors.END}\n")
+    
+    def load_agent(self):
+        """Cargar agente LLM que mapea queries a artículos"""
+        graph_paths = [
+            Path(__file__).parent.parent / "articles-117137_galeria_02_articles_graph.json",
+            Path.cwd() / "articles-117137_galeria_02_articles_graph.json",
+            Path.cwd() / "backend" / "articles-117137_galeria_02_articles_graph.json",
+        ]
+        
+        graph_path = None
+        for gp in graph_paths:
+            if gp.exists():
+                graph_path = str(gp)
+                break
+        
+        self.agent = LegalAgentCodigoTrabajo(graph_path)
+        if graph_path:
+            print(f"{Colors.GREEN}🤖 Agente cargado con grafo de artículos{Colors.END}\n")
+        else:
+            print(f"{Colors.YELLOW}⚠️  Agente en modo degradado (sin grafo de artículos){Colors.END}\n")
     
     def load_documents(self):
         """Cargar documentos de la BD"""
@@ -111,14 +135,23 @@ class CLIChat:
         """Mostrar ayuda"""
         print(f"{Colors.CYAN}Comandos disponibles:{Colors.END}")
         print(f"  {Colors.GREEN}?{Colors.END} - Mostrar esta ayuda")
+        print(f"\n{Colors.BOLD}📄 Gestión de PDFs:{Colors.END}")
         print(f"  {Colors.GREEN}cargar <ruta>{Colors.END} - Cargar PDF (ej: cargar documentos/ley.pdf)")
-        print(f"  {Colors.GREEN}grafo{Colors.END} - Ver estadísticas del grafo de conocimiento")
-        print(f"  {Colors.GREEN}historial{Colors.END} - Ver historial de preguntas")
         print(f"  {Colors.GREEN}docs{Colors.END} - Listar documentos cargados")
         print(f"  {Colors.GREEN}reset-docs{Colors.END} - Borrar todos los documentos")
+        print(f"\n{Colors.BOLD}📊 Gestión de Grafos JSON:{Colors.END}")
+        print(f"  {Colors.GREEN}cargar-grafo <ruta>{Colors.END} - Cargar JSON (ej: cargar-grafo grafos/codigo.json)")
+        print(f"  {Colors.GREEN}grafos{Colors.END} - Listar grafos cargados")
+        print(f"  {Colors.GREEN}reset-grafos{Colors.END} - Descargar todos los grafos")
+        print(f"\n{Colors.BOLD}📈 Información:{Colors.END}")
+        print(f"  {Colors.GREEN}grafo{Colors.END} - Ver estadísticas del grafo de conocimiento")
+        print(f"  {Colors.GREEN}historial{Colors.END} - Ver historial de preguntas")
         print(f"  {Colors.GREEN}limpiar{Colors.END} - Limpiar pantalla")
+        print(f"\n{Colors.BOLD}🚪 Sesión:{Colors.END}")
         print(f"  {Colors.GREEN}salir{Colors.END} - Cerrar aplicación")
-        print(f"  {Colors.RED}Tu pregunta{Colors.END} - Chatear sobre el Código del Trabajo\n")
+        print(f"  {Colors.RED}Tu pregunta{Colors.END} - Chatear sobre el Código del Trabajo")
+        print(f"\n{Colors.YELLOW}💡 El agente analizará automáticamente tus preguntas")
+        print(f"   y las mapeará a los artículos más relevantes{Colors.END}\n")
     
     def print_documents(self):
         """Listar documentos disponibles"""
@@ -184,6 +217,77 @@ class CLIChat:
         else:
             print(f"{Colors.YELLOW}❌ Cancelado{Colors.END}\n")
     
+    def load_json_graph(self, json_path: str):
+        """Cargar grafo JSON y agregarlo a la lista activa"""
+        json_file = Path(json_path)
+        
+        if not json_file.exists():
+            print(f"{Colors.RED}❌ Archivo no encontrado: {json_path}{Colors.END}\n")
+            return
+        
+        if not json_file.suffix.lower() == '.json':
+            print(f"{Colors.RED}❌ Solo se aceptan archivos JSON{Colors.END}\n")
+            return
+        
+        print(f"\n{Colors.BLUE}📥 Cargando grafo: {json_file.name}...{Colors.END}")
+        
+        try:
+            with open(json_file, 'r', encoding='utf-8') as f:
+                grafo_data = json.load(f)
+            
+            # Validar estructura básica
+            if not isinstance(grafo_data, dict) or 'nodes' not in grafo_data:
+                print(f"{Colors.YELLOW}⚠️  Archivo JSON no parece ser un grafo válido (falta 'nodes'){Colors.END}\n")
+                return
+            
+            # Cargar en el servicio de grafos
+            if graph_service.load_graph(str(json_file)):
+                graph_name = json_file.stem
+                self.loaded_graphs[graph_name] = str(json_file)
+                stats = graph_service.get_stats()
+                print(f"{Colors.GREEN}✅ Grafo '{graph_name}' cargado ({stats['nodes']} nodos, "
+                      f"{stats['edges']} relaciones){Colors.END}\n")
+            else:
+                print(f"{Colors.RED}❌ Error al cargar el grafo en el servicio{Colors.END}\n")
+        
+        except json.JSONDecodeError:
+            print(f"{Colors.RED}❌ Archivo JSON inválido (JSON malformado){Colors.END}\n")
+        except Exception as e:
+            print(f"{Colors.RED}❌ Error al cargar grafo: {str(e)}{Colors.END}\n")
+    
+    def print_loaded_graphs(self):
+        """Listar grafos cargados"""
+        if not self.loaded_graphs:
+            print(f"\n{Colors.YELLOW}No hay grafos cargados{Colors.END}\n")
+            return
+        
+        print(f"\n{Colors.BOLD}📊 Grafos disponibles:{Colors.END}")
+        for i, (name, path) in enumerate(self.loaded_graphs.items(), 1):
+            print(f"  {i}. {Colors.GREEN}{name}{Colors.END}")
+            print(f"     📁 {path}")
+        
+        if graph_service.is_loaded:
+            stats = graph_service.get_stats()
+            print(f"\n   {Colors.CYAN}Activo: {stats['nodes']} nodos, {stats['edges']} relaciones{Colors.END}")
+        print()
+    
+    def reset_graphs(self):
+        """Limpiar todos los grafos cargados"""
+        if not self.loaded_graphs:
+            print(f"{Colors.YELLOW}No hay grafos cargados para limpiar{Colors.END}\n")
+            return
+        
+        confirm = input(f"\n{Colors.YELLOW}⚠️  Descargar TODOS los grafos ({len(self.loaded_graphs)})? (sí/no): {Colors.END}").strip().lower()
+        
+        if confirm == "sí" or confirm == "si":
+            self.loaded_graphs.clear()
+            graph_service.is_loaded = False
+            graph_service.nodes = {}
+            graph_service.edges = []
+            print(f"{Colors.GREEN}✅ Grafos descargados. Sistema listo.{Colors.END}\n")
+        else:
+            print(f"{Colors.YELLOW}❌ Cancelado{Colors.END}\n")
+    
     def print_graph_stats(self):
         """Mostrar estadísticas del grafo de conocimiento"""
         if not graph_service.is_loaded:
@@ -229,13 +333,61 @@ class CLIChat:
             print(f"   {Colors.GREEN}A: {response[:100]}...{Colors.END}")
         print()
     
+    def show_agent_analysis(self, query: str):
+        """Mostrar análisis del agente sobre la query"""
+        if not self.agent:
+            return
+        
+        mapping = self.agent.get_best_articles(query, use_llm=True)
+        
+        print(f"\n{Colors.BOLD}{Colors.CYAN}🤖 ANÁLISIS DE AGENTE{Colors.END}")
+        print(f"{Colors.CYAN}{'='*60}{Colors.END}")
+        
+        if mapping['topics_found']:
+            print(f"{Colors.GREEN}Tópicos identificados:{Colors.END}")
+            for topic in mapping['topics_found']:
+                print(f"  • {topic}")
+        
+        if mapping['articles']:
+            print(f"\n{Colors.GREEN}Artículos relevantes ({mapping['confidence']} confianza):{Colors.END}")
+            for article in mapping['articles'][:5]:
+                if article.get("available", True):
+                    print(f"  • Art. {article['number']}: {article['title']}")
+                    if article['context'].get('libro'):
+                        print(f"    └─ Libro {article['context']['libro']}")
+        print(f"{Colors.CYAN}{'='*60}{Colors.END}\n")
+    
     def chat(self, query: str):
         """Procesar pregunta y generar respuesta"""
-        print(f"\n{Colors.BLUE}🔄 Buscando información relevante...{Colors.END}")
+        print(f"\n{Colors.BLUE}🔄 Analizando pregunta...{Colors.END}")
+        
+        # 0. Análisis del agente (si está disponible)
+        if self.agent:
+            self.show_agent_analysis(query)
+        
+        print(f"{Colors.BLUE}🔄 Buscando información relevante...{Colors.END}")
         
         # 1. Búsqueda híbrida: embeddings + BM25 + GRAFO (si disponible)
         results = RAGService.search_hybrid(query, top_k=3, use_graph=graph_service.is_loaded)
         relevant_docs = self.search_documents(query, top_k=3)
+        
+        # 2. Búsqueda adicional con keywords específicos si el agente detecta palabras clave
+        if self.agent:
+            specific_keywords = self.agent.extract_specific_keywords(query)
+            if specific_keywords:
+                for keyword in specific_keywords[:3]:  # Máx 3 keywords adicionales
+                    keyword_results = RAGService.search_hybrid(keyword, top_k=2, use_graph=graph_service.is_loaded)
+                    results.extend(keyword_results)
+        
+        # Eliminar duplicados
+        seen = set()
+        unique_results = []
+        for r in results:
+            key = (r.get('article'), r.get('score'))
+            if key not in seen:
+                seen.add(key)
+                unique_results.append(r)
+        results = sorted(unique_results, key=lambda x: x.get('score', 0), reverse=True)[:5]
         
         if not results:
             print(f"{Colors.YELLOW}⚠️  No se encontraron documentos relevantes{Colors.END}\n")
@@ -306,10 +458,17 @@ class CLIChat:
                     elif query.lower().startswith("cargar "):
                         pdf_path = query[7:].strip()
                         self.load_pdf(pdf_path)
+                    elif query.lower().startswith("cargar-grafo "):
+                        json_path = query[13:].strip()
+                        self.load_json_graph(json_path)
                     elif query.lower() == "reset-docs":
                         self.reset_documents()
+                    elif query.lower() == "reset-grafos":
+                        self.reset_graphs()
                     elif query.lower() == "grafo":
                         self.print_graph_stats()
+                    elif query.lower() == "grafos":
+                        self.print_loaded_graphs()
                     elif query.lower() == "historial":
                         self.print_history()
                     elif query.lower() == "docs":
