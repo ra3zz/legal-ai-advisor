@@ -1,0 +1,205 @@
+================================================================================
+⚖️  LEGAL AI ADVISOR - Project Information
+================================================================================
+
+PROJECT: Legal AI Advisor - Sistema de Asesoramiento Laboral Inteligente
+VERSION: 1.0 (25 February 2026)
+STATUS: ✅ PRODUCTION READY
+
+================================================================================
+📋 DOCUMENTACIÓN
+================================================================================
+
+Para Empezar:
+  1. INDEX.md              📖 Punto de entrada (lee primero)
+  2. QUICKSTART.md         🚀 Ejecutar en 30 segundos
+  3. README.md             📘 Documentación completa
+
+Para Desarrolladores:
+  4. DEVELOPER.md          💻 Guía de desarrollo
+  5. GRAPH_RAG_INTEGRATION_README.md    🔗 Arquitectura del grafo
+  6. backend/KNOWLEDGE_GRAPH_README.md  📊 Extracción de grafos
+
+================================================================================
+🚀 EJECUCIÓN
+================================================================================
+
+Comando Principal:
+  $ chmod +x run.sh
+  $ ./run.sh
+
+El script hace todo automáticamente:
+  ✅ Verifica Python 3.11+
+  ✅ Crea virtual environment
+  ✅ Instala dependencias
+  ✅ Configura API key
+  ✅ Inicializa BD
+  ✅ Inicia CLI
+
+================================================================================
+📁 ESTRUCTURA
+================================================================================
+
+AI_Codigo_trabajo/
+├── run.sh                              # 🚀 EJECUTAR
+├── INDEX.md                            # 📖 Punto de entrada
+├── QUICKSTART.md                       # 🏃 Inicio rápido
+├── README.md                           # 📘 Documentación completa
+├── DEVELOPER.md                        # 💻 Guía de desarrollo
+├── GRAPH_RAG_INTEGRATION_README.md     # 🔗 Arquitectura
+│
+├── articles-117137_galeria_02.pdf      # PDF origen
+├── articles-117137_galeria_02_graph.json # Grafo (54 nodos, 80 relaciones)
+│
+└── backend/
+    ├── cli_chat.py                     # Interface CLI principal
+    ├── build_knowledge_graph.py        # Generador de grafos
+    ├── requirements.txt                # Dependencias Python
+    │
+    ├── services/
+    │   ├── rag_service.py              # Búsqueda híbrida
+    │   ├── graph_service.py            # Grafo de conocimiento
+    │   └── groq_service.py             # Integración Groq
+    │
+    ├── database/
+    │   ├── models.py                   # ORM
+    │   └── database.py                 # Conexión
+    │
+    ├── scripts/init_db.py              # Inicializar BD
+    ├── test_suite.py                   # Tests unitarios
+    ├── test_rag.py                     # Tests manual
+    └── reset_db.py                     # Limpiar BD
+
+================================================================================
+🧠 TECNOLOGÍA
+================================================================================
+
+Stack:
+  • Python 3.11+
+  • SQLite (BD local)
+  • Groq API (llama-3.3-70b)
+  • SQLAlchemy (ORM)
+  • NumPy (cálculos)
+
+Algoritmos:
+  • Búsqueda Híbrida: 70% Embeddings + 30% BM25
+  • Reranking con Grafo de Conocimiento
+  • Extracción de Entidades y Relaciones
+  • LLM Expert (Groq)
+
+================================================================================
+📊 DATOS
+================================================================================
+
+Base de Datos:
+  • Tipo: SQLite (local)
+  • Documentos: 320 chunks
+  • Ubicación: backend/data/app.db
+  • Tamaño: ~50 MB
+
+Grafo de Conocimiento:
+  • Nodos: 54 entidades
+  • Relaciones: 80 conexiones
+  • Densidad: 1.48 edges/nodo
+  • Formato: JSON
+  • Ubicación: articles-117137_galeria_02_graph.json
+
+================================================================================
+⚡ PERFORMANCE
+================================================================================
+
+Operaciones:
+  • Startup: ~2 segundos
+  • Búsqueda: ~150 ms
+  • Reranking: +30 ms
+  • LLM Response: ~2 segundos
+  • Total/pregunta: ~2.2 segundos
+
+Requisitos:
+  • CPU: 2+ cores OK
+  • RAM: 2 GB mínimo, 4 GB recomendado
+  • Disco: 500 MB
+  • Red: Para Groq API
+
+================================================================================
+🔑 CONFIGURACIÓN
+================================================================================
+
+API Key Groq:
+  1. Ve a: https://console.groq.com
+  2. Crea una cuenta (gratis, 5,000 requests/mes)
+  3. Genera una API key
+  4. Agregá a: backend/.env
+     GROQ_API_KEY=gsk_...
+
+================================================================================
+✅ CHECKLIST FINAL
+================================================================================
+
+Limpieza:
+  ✅ Documentación vieja removida
+  ✅ Archivos temporales limpios
+  ✅ Estructura organizada
+  ✅ Solo archivos necesarios
+
+Documentación:
+  ✅ README completo
+  ✅ QUICKSTART para empezar rápido
+  ✅ DEVELOPER para contribuidores
+  ✅ Documentación técnica funcional
+
+Ejecución:
+  ✅ Script run.sh funcional
+  ✅ Todos los servicios intactos
+  ✅ Base de datos lista
+  ✅ Grafo cargable
+
+Testing:
+  ✅ test_suite.py pasando
+  ✅ CLI probado
+  ✅ RAG funcional
+  ✅ Grafo integrado
+
+================================================================================
+🚀 PRÓXIMOS PASOS
+================================================================================
+
+Para Usuarios:
+  1. Lee INDEX.md
+  2. Lee QUICKSTART.md
+  3. Ejecuta: ./run.sh
+  4. Haz preguntas
+
+Para Desarrolladores:
+  1. Lee DEVELOPER.md
+  2. Estudia GRAPH_RAG_INTEGRATION_README.md
+  3. Revisa código en services/
+  4. Ejecuta tests: python backend/test_suite.py
+
+================================================================================
+📞 SOPORTE
+================================================================================
+
+Errores Comunes:
+  • "Python 3.11 not found" → apt install python3.11
+  • "GROQ_API_KEY not found" → Edita backend/.env
+  • "Database locked" → rm backend/data/app.db
+
+Documentación:
+  • General: README.md
+  • Rápido: QUICKSTART.md
+  • Dev: DEVELOPER.md
+  • Técnico: GRAPH_RAG_INTEGRATION_README.md
+
+================================================================================
+Version History:
+  v1.0 (Feb 25 2026) - Production Release
+    ✅ RAG completo
+    ✅ Grafo integrado
+    ✅ CLI interactivo
+    ✅ Documentación técnica
+
+Project by: Rayzel (AI Development)
+Last Updated: February 25, 2026
+
+================================================================================

@@ -1,0 +1,1333 @@
+{
+  "metadata": {
+    "source": "articles-117137_galeria_02.pdf",
+    "total_text_chars": 1395129,
+    "chunks_processed": 320,
+    "nodes_count": 54,
+    "edges_count": 166
+  },
+  "nodes": [
+    {
+      "label": "Código del Trabajo",
+      "type": "concepto",
+      "description": "Normativa laboral",
+      "chunk_index": 0
+    },
+    {
+      "label": "Dirección del Trabajo",
+      "type": "actor",
+      "description": "Organismo gubernamental",
+      "chunk_index": 0
+    },
+    {
+      "label": "Propiedad Intelectual",
+      "type": "concepto",
+      "description": "Derechos que protegen la creación intelectual",
+      "chunk_index": 1
+    },
+    {
+      "label": "Comité Editorial",
+      "type": "actor",
+      "description": "Grupo de personas responsables de la edición del Código del Trabajo",
+      "chunk_index": 1
+    },
+    {
+      "label": "Camila Andrea Jordan Lapostol",
+      "type": "actor",
+      "description": "Subdirectora del Trabajo",
+      "chunk_index": 1
+    },
+    {
+      "label": "Rosamel Gutiérrez Riquelme",
+      "type": "actor",
+      "description": "Jefe del Departamento Jurídico",
+      "chunk_index": 1
+    },
+    {
+      "label": "Jorge Arriagada Hadi",
+      "type": "actor",
+      "description": "Jefe del Departamento de Inspección",
+      "chunk_index": 1
+    },
+    {
+      "label": "Lilia Jerez Arévalo",
+      "type": "actor",
+      "description": "Jefa del Departamento de Relaciones Laborales",
+      "chunk_index": 1
+    },
+    {
+      "label": "María Cecilia Gómez Bahamondes",
+      "type": "actor",
+      "description": "Jefa del Departamento de Atención de Usuarios",
+      "chunk_index": 1
+    },
+    {
+      "label": "Carlos Hernán Ramírez Guerra",
+      "type": "actor",
+      "description": "Editor del Boletín Oficial",
+      "chunk_index": 1
+    },
+    {
+      "label": "Lionel Cancino Santibáñez",
+      "type": "actor",
+      "description": "Ingeniero Civil de la Unidad de Salud y Seguridad Laboral",
+      "chunk_index": 1
+    },
+    {
+      "label": "Natalia Pozo Sanhueza",
+      "type": "actor",
+      "description": "Abogada de la Unidad de Dictámenes e Informes en Derecho",
+      "chunk_index": 1
+    },
+    {
+      "label": "Código del Trabajo",
+      "type": "documento",
+      "description": "Código que regula las relaciones laborales",
+      "chunk_index": 2
+    },
+    {
+      "label": "Dirección del Trabajo",
+      "type": "organismo",
+      "description": "Entidad responsable de la aplicación del Código del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Camila Andrea Jordan Lapostol",
+      "type": "actor",
+      "description": "Subdirectora de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Rosamel Gutiérrez Riquelme",
+      "type": "actor",
+      "description": "Jefe del departamento jurídico de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Jorge Arriagada Hadi",
+      "type": "actor",
+      "description": "Jefe del departamento de inspección de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Lilia Jerez Arévalo",
+      "type": "actor",
+      "description": "Jefa del departamento de relaciones laborales de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "María Cecilia Gómez Bahamondes",
+      "type": "actor",
+      "description": "Jefa del departamento de atención al usuario de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Carlos Hernán Ramírez Guerra",
+      "type": "actor",
+      "description": "Editor del boletín oficial de la Dirección del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Lionel Cancino Santibáñez",
+      "type": "actor",
+      "description": "Ingeniero civil colaborador en la edición del Código del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Natalia Pozo Sanhueza",
+      "type": "actor",
+      "description": "Abogada colaboradora en la edición del Código del Trabajo",
+      "chunk_index": 2
+    },
+    {
+      "label": "Contrato individual de trabajo",
+      "type": "concepto",
+      "description": "Acuerdo entre trabajador y empleador que regula las condiciones laborales",
+      "chunk_index": 2
+    },
+    {
+      "label": "Capacitación laboral",
+      "type": "concepto",
+      "description": "Proceso de formación y desarrollo de habilidades laborales",
+      "chunk_index": 2
+    },
+    {
+      "label": "Código del Trabajo",
+      "type": "concepto",
+      "description": "Normativa laboral",
+      "chunk_index": 4
+    },
+    {
+      "label": "Trabajadores Agrícolas",
+      "type": "actor",
+      "description": "Empleados en el sector agrícola",
+      "chunk_index": 4
+    },
+    {
+      "label": "Trabajadores Embarcados",
+      "type": "actor",
+      "description": "Empleados en la marina mercante",
+      "chunk_index": 4
+    },
+    {
+      "label": "Trabajadores Portuarios",
+      "type": "actor",
+      "description": "Empleados en puertos",
+      "chunk_index": 4
+    },
+    {
+      "label": "Trabajadores de Artes y Espectáculos",
+      "type": "actor",
+      "description": "Empleados en el sector de entretenimiento",
+      "chunk_index": 4
+    },
+    {
+      "label": "Trabajadores de Casa Particular",
+      "type": "actor",
+      "description": "Empleados en hogares particulares",
+      "chunk_index": 4
+    },
+    {
+      "label": "Deportistas Profesionales",
+      "type": "actor",
+      "description": "Empleados en el sector deportivo",
+      "chunk_index": 4
+    },
+    {
+      "label": "Tripulantes de Vuelo",
+      "type": "actor",
+      "description": "Empleados en la aviación comercial",
+      "chunk_index": 4
+    },
+    {
+      "label": "Personas con Discapacidad",
+      "type": "actor",
+      "description": "Individuos con necesidades especiales",
+      "chunk_index": 4
+    },
+    {
+      "label": "Servicio Militar Obligatorio",
+      "type": "concepto",
+      "description": "Servicio militar requerido por ley",
+      "chunk_index": 4
+    },
+    {
+      "label": "Centrales Sindicales",
+      "type": "actor",
+      "description": "entidades que coordinan a sindicatos",
+      "chunk_index": 6
+    },
+    {
+      "label": "Delegado del Personal",
+      "type": "actor",
+      "description": "representante de los trabajadores",
+      "chunk_index": 6
+    },
+    {
+      "label": "Código del Trabajo",
+      "type": "concepto",
+      "description": "Texto legal que regula las relaciones laborales",
+      "chunk_index": 12
+    },
+    {
+      "label": "Ministerio del Trabajo y Previsión Social",
+      "type": "actor",
+      "description": "Institución gubernamental responsable de la política laboral",
+      "chunk_index": 12
+    },
+    {
+      "label": "Presidente de la República",
+      "type": "actor",
+      "description": "Jefe de Estado que dicta decretos con fuerza de ley",
+      "chunk_index": 12
+    },
+    {
+      "label": "Ley N° 19.759",
+      "type": "concepto",
+      "description": "Ley que faculta al Presidente para dictar el texto refundido del Código del Trabajo",
+      "chunk_index": 12
+    },
+    {
+      "label": "Decreto con fuerza de ley",
+      "type": "concepto",
+      "description": "Instrumento legal que tiene fuerza de ley",
+      "chunk_index": 12
+    },
+    {
+      "label": "Dirección del Trabajo",
+      "type": "actor",
+      "description": "Institución responsable de la aplicación del Código del Trabajo",
+      "chunk_index": 12
+    },
+    {
+      "label": "Inspectores",
+      "type": "actor",
+      "description": "Funcionarios responsables de fiscalizar el cumplimiento del Código del Trabajo",
+      "chunk_index": 12
+    },
+    {
+      "label": "Contratos individuales",
+      "type": "derecho",
+      "description": "Acuerdos laborales",
+      "chunk_index": 18
+    },
+    {
+      "label": "Instrumentos colectivos",
+      "type": "derecho",
+      "description": "Acuerdos laborales colectivos",
+      "chunk_index": 18
+    },
+    {
+      "label": "Contrato Individual de Trabajo",
+      "type": "concepto",
+      "description": "Acuerdo laboral entre empleador y trabajador",
+      "chunk_index": 40
+    },
+    {
+      "label": "Descanso Dominical",
+      "type": "derecho",
+      "description": "Derecho a descansar el día domingo",
+      "chunk_index": 40
+    },
+    {
+      "label": "Feriado",
+      "type": "concepto",
+      "description": "Día de descanso obligatorio",
+      "chunk_index": 40
+    },
+    {
+      "label": "Trabajador",
+      "type": "actor",
+      "description": "Persona que trabaja bajo un contrato laboral",
+      "chunk_index": 40
+    },
+    {
+      "label": "Empleador",
+      "type": "actor",
+      "description": "Persona o empresa que contrata a un trabajador",
+      "chunk_index": 40
+    },
+    {
+      "label": "Hoteles y Similares",
+      "type": "actor",
+      "description": "Establecimientos que brindan servicios de alojamiento y comida",
+      "chunk_index": 40
+    },
+    {
+      "label": "Día de Descanso",
+      "type": "concepto",
+      "description": "Día en que el trabajador tiene derecho a descansar",
+      "chunk_index": 40
+    },
+    {
+      "label": "Operadores de Turismo",
+      "type": "actor",
+      "description": "Empresas que ofrecen servicios turísticos",
+      "chunk_index": 42
+    },
+    {
+      "label": "Dirección del Trabajo",
+      "type": "actor",
+      "description": "Organismo que regula las relaciones laborales",
+      "chunk_index": 42
+    }
+  ],
+  "edges": [
+    {
+      "source": "E1",
+      "target": "E2",
+      "relation": "regulación",
+      "weight": 0.8
+    },
+    {
+      "source": "E2",
+      "target": "E1",
+      "relation": "propiedad",
+      "weight": 0.8
+    },
+    {
+      "source": "E4",
+      "target": "E1",
+      "relation": "edición",
+      "weight": 0.7
+    },
+    {
+      "source": "E5",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E6",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E7",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E8",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E9",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E10",
+      "target": "E2",
+      "relation": "miembro",
+      "weight": 0.6
+    },
+    {
+      "source": "E11",
+      "target": "E2",
+      "relation": "colaborador",
+      "weight": 0.5
+    },
+    {
+      "source": "E12",
+      "target": "E2",
+      "relation": "colaborador",
+      "weight": 0.5
+    },
+    {
+      "source": "2",
+      "target": "1",
+      "relation": "propiedad",
+      "weight": 0.8
+    },
+    {
+      "source": "3",
+      "target": "2",
+      "relation": "subdirectora",
+      "weight": 0.6
+    },
+    {
+      "source": "4",
+      "target": "2",
+      "relation": "jefe_departamento",
+      "weight": 0.6
+    },
+    {
+      "source": "5",
+      "target": "2",
+      "relation": "jefe_departamento",
+      "weight": 0.6
+    },
+    {
+      "source": "6",
+      "target": "2",
+      "relation": "jefa_departamento",
+      "weight": 0.6
+    },
+    {
+      "source": "7",
+      "target": "2",
+      "relation": "jefa_departamento",
+      "weight": 0.6
+    },
+    {
+      "source": "8",
+      "target": "2",
+      "relation": "editor",
+      "weight": 0.4
+    },
+    {
+      "source": "9",
+      "target": "1",
+      "relation": "colaborador",
+      "weight": 0.4
+    },
+    {
+      "source": "10",
+      "target": "1",
+      "relation": "colaborador",
+      "weight": 0.4
+    },
+    {
+      "source": "11",
+      "target": "1",
+      "relation": "regulado_por",
+      "weight": 0.8
+    },
+    {
+      "source": "12",
+      "target": "1",
+      "relation": "relacionado_con",
+      "weight": 0.6
+    },
+    {
+      "source": "1",
+      "target": "2",
+      "relation": "regulación",
+      "weight": 0.8
+    },
+    {
+      "source": "3",
+      "target": "5",
+      "relation": "participación",
+      "weight": 0.7
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "relation": "beneficio",
+      "weight": 0.6
+    },
+    {
+      "source": "6",
+      "target": "3",
+      "relation": "contratación",
+      "weight": 0.9
+    },
+    {
+      "source": "7",
+      "target": "5",
+      "relation": "asociación",
+      "weight": 0.8
+    },
+    {
+      "source": "8",
+      "target": "5",
+      "relation": "pago",
+      "weight": 0.9
+    },
+    {
+      "source": "9",
+      "target": "5",
+      "relation": "beneficio",
+      "weight": 0.7
+    },
+    {
+      "source": "10",
+      "target": "5",
+      "relation": "formación",
+      "weight": 0.8
+    },
+    {
+      "source": "11",
+      "target": "3",
+      "relation": "especificidad",
+      "weight": 0.6
+    },
+    {
+      "source": "12",
+      "target": "3",
+      "relation": "especificidad",
+      "weight": 0.6
+    },
+    {
+      "source": "e1",
+      "target": "e2",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e3",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e4",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e5",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e6",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e7",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e8",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e9",
+      "relation": "protege",
+      "weight": 0.8
+    },
+    {
+      "source": "e1",
+      "target": "e10",
+      "relation": "establece",
+      "weight": 0.8
+    },
+    {
+      "source": "2",
+      "target": "3",
+      "relation": "supervisa",
+      "weight": 0.7
+    },
+    {
+      "source": "3",
+      "target": "4",
+      "relation": "se_aplica",
+      "weight": 0.6
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "relation": "beneficia",
+      "weight": 0.8
+    },
+    {
+      "source": "6",
+      "target": "7",
+      "relation": "incluye",
+      "weight": 0.7
+    },
+    {
+      "source": "7",
+      "target": "8",
+      "relation": "protege",
+      "weight": 0.6
+    },
+    {
+      "source": "8",
+      "target": "9",
+      "relation": "representa",
+      "weight": 0.8
+    },
+    {
+      "source": "9",
+      "target": "10",
+      "relation": "se_agrupa",
+      "weight": 0.7
+    },
+    {
+      "source": "e5",
+      "target": "e6",
+      "relation": "realiza",
+      "weight": 0.8
+    },
+    {
+      "source": "e7",
+      "target": "e1",
+      "relation": "administra",
+      "weight": 0.8
+    },
+    {
+      "source": "e8",
+      "target": "e5",
+      "relation": "pertenece",
+      "weight": 0.8
+    },
+    {
+      "source": "e9",
+      "target": "e10",
+      "relation": "se une",
+      "weight": 0.8
+    },
+    {
+      "source": "e10",
+      "target": "e11",
+      "relation": "se coordina",
+      "weight": 0.8
+    },
+    {
+      "source": "e12",
+      "target": "e8",
+      "relation": "representa",
+      "weight": 0.8
+    },
+    {
+      "source": "5",
+      "target": "3",
+      "relation": "representa",
+      "weight": 0.9
+    },
+    {
+      "source": "7",
+      "target": "4",
+      "relation": "es_resultado_de",
+      "weight": 0.8
+    },
+    {
+      "source": "8",
+      "target": "4",
+      "relation": "describe",
+      "weight": 0.7
+    },
+    {
+      "source": "9",
+      "target": "3",
+      "relation": "es_acción_de",
+      "weight": 0.5
+    },
+    {
+      "source": "10",
+      "target": "4",
+      "relation": "participa_en",
+      "weight": 0.8
+    },
+    {
+      "source": "E6",
+      "target": "E9",
+      "relation": "participa_en",
+      "weight": 0.8
+    },
+    {
+      "source": "E7",
+      "target": "E9",
+      "relation": "participa_en",
+      "weight": 0.8
+    },
+    {
+      "source": "E8",
+      "target": "E9",
+      "relation": "participa_en",
+      "weight": 0.8
+    },
+    {
+      "source": "E9",
+      "target": "E10",
+      "relation": "incluye",
+      "weight": 0.6
+    },
+    {
+      "source": "E2",
+      "target": "E6",
+      "relation": "se_refiere_a",
+      "weight": 0.7
+    },
+    {
+      "source": "E3",
+      "target": "E9",
+      "relation": "regula",
+      "weight": 0.7
+    },
+    {
+      "source": "E4",
+      "target": "E9",
+      "relation": "describe",
+      "weight": 0.7
+    },
+    {
+      "source": "E5",
+      "target": "E9",
+      "relation": "especializa",
+      "weight": 0.7
+    },
+    {
+      "source": "3",
+      "target": "6",
+      "relation": "aplicación",
+      "weight": 0.6
+    },
+    {
+      "source": "7",
+      "target": "3",
+      "relation": "regulación",
+      "weight": 0.9
+    },
+    {
+      "source": "8",
+      "target": "3",
+      "relation": "resolución",
+      "weight": 0.8
+    },
+    {
+      "source": "10",
+      "target": "3",
+      "relation": "jurisdicción",
+      "weight": 0.9
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "relation": "regula",
+      "weight": 0.7
+    },
+    {
+      "source": "4",
+      "target": "3",
+      "relation": "realiza",
+      "weight": 0.9
+    },
+    {
+      "source": "6",
+      "target": "4",
+      "relation": "capacita",
+      "weight": 0.8
+    },
+    {
+      "source": "entity_2",
+      "target": "entity_1",
+      "relation": "responsable_de",
+      "weight": 0.8
+    },
+    {
+      "source": "entity_3",
+      "target": "entity_5",
+      "relation": "dicta",
+      "weight": 0.9
+    },
+    {
+      "source": "entity_5",
+      "target": "entity_1",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "entity_4",
+      "target": "entity_5",
+      "relation": "faculta",
+      "weight": 0.7
+    },
+    {
+      "source": "entity_6",
+      "target": "entity_1",
+      "relation": "aplica",
+      "weight": 0.8
+    },
+    {
+      "source": "entity_7",
+      "target": "entity_1",
+      "relation": "fiscaliza",
+      "weight": 0.8
+    },
+    {
+      "source": "3",
+      "target": "1",
+      "relation": "vigila",
+      "weight": 0.6
+    },
+    {
+      "source": "E2",
+      "target": "E3",
+      "relation": "contratación",
+      "weight": 0.8
+    },
+    {
+      "source": "E1",
+      "target": "E4",
+      "relation": "regulación",
+      "weight": 0.9
+    },
+    {
+      "source": "E5",
+      "target": "E6",
+      "relation": "dependencia",
+      "weight": 0.7
+    },
+    {
+      "source": "E5",
+      "target": "E7",
+      "relation": "dependencia",
+      "weight": 0.7
+    },
+    {
+      "source": "E3",
+      "target": "E8",
+      "relation": "trabajo",
+      "weight": 0.6
+    },
+    {
+      "source": "E9",
+      "target": "E3",
+      "relation": "prestación de servicios",
+      "weight": 0.5
+    },
+    {
+      "source": "E10",
+      "target": "E3",
+      "relation": "realización",
+      "weight": 0.8
+    },
+    {
+      "source": "E3",
+      "target": "E1",
+      "relation": "regula",
+      "weight": 0.6
+    },
+    {
+      "source": "E3",
+      "target": "E2",
+      "relation": "regula",
+      "weight": 0.6
+    },
+    {
+      "source": "E4",
+      "target": "E2",
+      "relation": "empleador-empleado",
+      "weight": 0.4
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "relation": "regula",
+      "weight": 0.7
+    },
+    {
+      "source": "2",
+      "target": "7",
+      "relation": "utiliza",
+      "weight": 0.6
+    },
+    {
+      "source": "8",
+      "target": "7",
+      "relation": "suma a",
+      "weight": 0.5
+    },
+    {
+      "source": "E4",
+      "target": "E3",
+      "relation": "se considera",
+      "weight": 0.7
+    },
+    {
+      "source": "E5",
+      "target": "E3",
+      "relation": "pertenece",
+      "weight": 0.6
+    },
+    {
+      "source": "E3",
+      "target": "E4",
+      "relation": "dependencia",
+      "weight": 0.6
+    },
+    {
+      "source": "E8",
+      "target": "E6",
+      "relation": "aplicación",
+      "weight": 0.8
+    },
+    {
+      "source": "E9",
+      "target": "E7",
+      "relation": "aplicación",
+      "weight": 0.8
+    },
+    {
+      "source": "E10",
+      "target": "E7",
+      "relation": "aprobación",
+      "weight": 0.9
+    },
+    {
+      "source": "E11",
+      "target": "E8",
+      "relation": "emisión",
+      "weight": 0.8
+    },
+    {
+      "source": "E11",
+      "target": "E9",
+      "relation": "emisión",
+      "weight": 0.8
+    },
+    {
+      "source": "E12",
+      "target": "E13",
+      "relation": "regulación",
+      "weight": 0.7
+    },
+    {
+      "source": "E12",
+      "target": "E14",
+      "relation": "regulación",
+      "weight": 0.7
+    },
+    {
+      "source": "E1",
+      "target": "E3",
+      "relation": "se_asocia_con",
+      "weight": 0.7
+    },
+    {
+      "source": "E4",
+      "target": "E6",
+      "relation": "regulado_por",
+      "weight": 0.8
+    },
+    {
+      "source": "E7",
+      "target": "E3",
+      "relation": "fija sentido y alcance de",
+      "weight": 0.4
+    },
+    {
+      "source": "2",
+      "target": "4",
+      "relation": "negociación colectiva",
+      "weight": 0.6
+    },
+    {
+      "source": "6",
+      "target": "8",
+      "relation": "emisión de dictamen",
+      "weight": 0.7
+    },
+    {
+      "source": "1",
+      "target": "3",
+      "relation": "establece",
+      "weight": 0.8
+    },
+    {
+      "source": "6",
+      "target": "9",
+      "relation": "proporciona",
+      "weight": 0.5
+    },
+    {
+      "source": "4",
+      "target": "1",
+      "relation": "supervisa",
+      "weight": 0.6
+    },
+    {
+      "source": "5",
+      "target": "1",
+      "relation": "regula",
+      "weight": 0.9
+    },
+    {
+      "source": "E2",
+      "target": "E4",
+      "relation": "regula",
+      "weight": 0.7
+    },
+    {
+      "source": "E3",
+      "target": "E5",
+      "relation": "mantiene",
+      "weight": 0.4
+    },
+    {
+      "source": "1",
+      "target": "5",
+      "relation": "se desarolla en",
+      "weight": 0.7
+    },
+    {
+      "source": "7",
+      "target": "6",
+      "relation": "ajusta",
+      "weight": 0.5
+    },
+    {
+      "source": "8",
+      "target": "1",
+      "relation": "influye en",
+      "weight": 0.5
+    },
+    {
+      "source": "E5",
+      "target": "E1",
+      "relation": "requiere",
+      "weight": 0.6
+    },
+    {
+      "source": "E6",
+      "target": "E1",
+      "relation": "requiere",
+      "weight": 0.6
+    },
+    {
+      "source": "E7",
+      "target": "E1",
+      "relation": "supervisa",
+      "weight": 0.8
+    },
+    {
+      "source": "E8",
+      "target": "E1",
+      "relation": "autoriza",
+      "weight": 0.9
+    },
+    {
+      "source": "E9",
+      "target": "E1",
+      "relation": "autoriza",
+      "weight": 0.8
+    },
+    {
+      "source": "E10",
+      "target": "E1",
+      "relation": "autoriza",
+      "weight": 0.7
+    },
+    {
+      "source": "E6",
+      "target": "E7",
+      "relation": "realiza",
+      "weight": 0.8
+    },
+    {
+      "source": "E6",
+      "target": "E8",
+      "relation": "se somete a",
+      "weight": 0.8
+    },
+    {
+      "source": "E1",
+      "target": "E10",
+      "relation": "prohibido trabajar en",
+      "weight": 0.8
+    },
+    {
+      "source": "E1",
+      "target": "E11",
+      "relation": "prohibido trabajar en",
+      "weight": 0.8
+    },
+    {
+      "source": "E4",
+      "target": "E5",
+      "relation": "proporción de trabajadores chilenos",
+      "weight": 0.7
+    },
+    {
+      "source": "E7",
+      "target": "E6",
+      "relation": "relación con el contrato individual de trabajo",
+      "weight": 0.5
+    },
+    {
+      "source": "E7",
+      "target": "E8",
+      "relation": "pertenece",
+      "weight": 0.8
+    },
+    {
+      "source": "4",
+      "target": "6",
+      "relation": "representa",
+      "weight": 0.9
+    },
+    {
+      "source": "E8",
+      "target": "E3",
+      "relation": "define",
+      "weight": 0.8
+    },
+    {
+      "source": "E6",
+      "target": "E3",
+      "relation": "emplea_a",
+      "weight": 0.9
+    },
+    {
+      "source": "E8",
+      "target": "E10",
+      "relation": "presta_servicio_de",
+      "weight": 0.7
+    },
+    {
+      "source": "3",
+      "target": "9",
+      "relation": "presta_servicio",
+      "weight": 0.8
+    },
+    {
+      "source": "4",
+      "target": "9",
+      "relation": "presta_servicio",
+      "weight": 0.8
+    },
+    {
+      "source": "5",
+      "target": "9",
+      "relation": "regula",
+      "weight": 0.7
+    },
+    {
+      "source": "10",
+      "target": "8",
+      "relation": "emplea",
+      "weight": 0.5
+    },
+    {
+      "source": "5",
+      "target": "7",
+      "relation": "paga",
+      "weight": 0.7
+    },
+    {
+      "source": "E7",
+      "target": "E5",
+      "relation": "regula",
+      "weight": 0.4
+    },
+    {
+      "source": "E8",
+      "target": "E5",
+      "relation": "establece requisitos",
+      "weight": 0.3
+    },
+    {
+      "source": "E9",
+      "target": "E8",
+      "relation": "actualiza",
+      "weight": 0.2
+    },
+    {
+      "source": "9",
+      "target": "7",
+      "relation": "excepción a",
+      "weight": 0.4
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "relation": "preside la firma de",
+      "weight": 0.6
+    },
+    {
+      "source": "9",
+      "target": "4",
+      "relation": "regula el",
+      "weight": 0.5
+    },
+    {
+      "source": "contrato_individual_de_trabajo",
+      "target": "trabajador",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "descanso_dominical",
+      "target": "trabajador",
+      "relation": "beneficia",
+      "weight": 0.9
+    },
+    {
+      "source": "feriado",
+      "target": "trabajador",
+      "relation": "beneficia",
+      "weight": 0.9
+    },
+    {
+      "source": "empleador",
+      "target": "trabajador",
+      "relation": "contrata",
+      "weight": 0.8
+    },
+    {
+      "source": "hoteles_y_similares",
+      "target": "trabajador",
+      "relation": "emplea",
+      "weight": 0.7
+    },
+    {
+      "source": "dia_de_descanso",
+      "target": "trabajador",
+      "relation": "beneficia",
+      "weight": 0.9
+    },
+    {
+      "source": "9",
+      "target": "2",
+      "relation": "emplea",
+      "weight": 0.6
+    },
+    {
+      "source": "10",
+      "target": "2",
+      "relation": "emplea",
+      "weight": 0.6
+    },
+    {
+      "source": "11",
+      "target": "2",
+      "relation": "emplea",
+      "weight": 0.6
+    },
+    {
+      "source": "12",
+      "target": "2",
+      "relation": "emplea",
+      "weight": 0.6
+    },
+    {
+      "source": "13",
+      "target": "2",
+      "relation": "emplea",
+      "weight": 0.6
+    },
+    {
+      "source": "14",
+      "target": "1",
+      "relation": "regula",
+      "weight": 0.8
+    },
+    {
+      "source": "3",
+      "target": "8",
+      "relation": "Tiene derecho a",
+      "weight": 0.8
+    },
+    {
+      "source": "E5",
+      "target": "E4",
+      "relation": "es_un_tipo_de",
+      "weight": 0.6
+    },
+    {
+      "source": "E6",
+      "target": "E4",
+      "relation": "es_un_tipo_de",
+      "weight": 0.6
+    },
+    {
+      "source": "E7",
+      "target": "E4",
+      "relation": "es_un_tipo_de",
+      "weight": 0.6
+    },
+    {
+      "source": "E8",
+      "target": "E4",
+      "relation": "es_un_tipo_de",
+      "weight": 0.6
+    },
+    {
+      "source": "E9",
+      "target": "E4",
+      "relation": "limita_a",
+      "weight": 0.5
+    },
+    {
+      "source": "E3",
+      "target": "E7",
+      "relation": "excluye",
+      "weight": 0.3
+    },
+    {
+      "source": "E2",
+      "target": "E7",
+      "relation": "comunica_antecedentes",
+      "weight": 0.8
+    }
+  ]
+}

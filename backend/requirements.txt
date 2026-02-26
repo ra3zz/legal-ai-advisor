@@ -1,0 +1,31 @@
+# Backend - Servidor web
+fastapi
+uvicorn
+python-multipart
+
+# Base de datos
+sqlalchemy
+alembic
+
+# Utilidades
+python-dotenv
+pydantic>=2.8.0
+pydantic-settings
+
+# APIs externas y HTTP
+requests
+httpx
+
+# Criptografía y seguridad
+passlib
+python-jose
+bcrypt
+
+# PDF y procesamiento de texto
+PyPDF2
+numpy
+scipy
+
+# Desarrollo
+pytest
+black
