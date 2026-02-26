@@ -105,12 +105,61 @@ class CLIChatDebug:
         """Mostrar ayuda"""
         print(f"\n{Colors.CYAN}Comandos disponibles:{Colors.END}")
         print(f"  {Colors.GREEN}?{Colors.END} - Mostrar esta ayuda")
+        print(f"\n{Colors.BOLD}📄 Gestión de PDFs:{Colors.END}")
+        print(f"  {Colors.GREEN}cargar <ruta>{Colors.END} - Cargar PDF")
         print(f"  {Colors.GREEN}docs{Colors.END} - Listar documentos cargados")
-        print(f"  {Colors.GREEN}grafos{Colors.END} - Listar grafos cargados")
-        print(f"  {Colors.GREEN}grafo{Colors.END} - Ir stats del grafo")
+        print(f"  {Colors.GREEN}reset-docs{Colors.END} - Borrar todos los documentos")
+        print(f"\n{Colors.BOLD}📊 Información:{Colors.END}")
+        print(f"  {Colors.GREEN}grafo{Colors.END} - Ver estadísticas del grafo")
+        print(f"  {Colors.GREEN}grafos{Colors.END} - Ver grafos cargados")
         print(f"  {Colors.GREEN}limpiar{Colors.END} - Limpiar pantalla")
+        print(f"\n{Colors.BOLD}🚪 Sesión:{Colors.END}")
         print(f"  {Colors.GREEN}salir{Colors.END} - Cerrar aplicación")
         print(f"  {Colors.RED}Tu pregunta{Colors.END} - Chatear con DEBUG\n")
+    
+    def load_pdf(self, pdf_path: str):
+        """Cargar PDF y agregarlo a la BD"""
+        pdf_file = Path(pdf_path)
+        
+        if not pdf_file.exists():
+            print(f"{Colors.RED}❌ Archivo no encontrado: {pdf_path}{Colors.END}\n")
+            return
+        
+        if not pdf_file.suffix.lower() == '.pdf':
+            print(f"{Colors.RED}❌ Solo se aceptan archivos PDF{Colors.END}\n")
+            return
+        
+        print(f"\n{Colors.BLUE}📥 Cargando PDF: {pdf_file.name}...{Colors.END}")
+        
+        try:
+            result = RAGService.process_pdf(str(pdf_file))
+            
+            if isinstance(result, dict) and result.get('success'):
+                self.load_documents()
+                saved = result.get('documents_saved', 0)
+                print(f"{Colors.GREEN}✅ PDF procesado: {saved} documento(s) agregado(s){Colors.END}\n")
+            else:
+                error_msg = result.get('message', 'Error desconocido') if isinstance(result, dict) else str(result)
+                print(f"{Colors.YELLOW}⚠️  {error_msg}{Colors.END}\n")
+        
+        except Exception as e:
+            print(f"{Colors.RED}❌ Error al procesar PDF: {str(e)}{Colors.END}\n")
+    
+    def reset_documents(self):
+        """Limpiar todos los documentos de la BD"""
+        confirm = input(f"\n{Colors.YELLOW}⚠️  Borrar TODOS los documentos? (sí/no): {Colors.END}").strip().lower()
+        
+        if confirm == "sí" or confirm == "si":
+            try:
+                self.db.query(Document).delete()
+                self.db.commit()
+                self.load_documents()
+                print(f"{Colors.GREEN}✅ Documentos borrados.{Colors.END}\n")
+            except Exception as e:
+                self.db.rollback()
+                print(f"{Colors.RED}❌ Error: {str(e)}{Colors.END}\n")
+        else:
+            print(f"{Colors.YELLOW}❌ Cancelado{Colors.END}\n")
     
     def log_section(self, title: str):
         """Marcar sección importante"""
@@ -296,8 +345,21 @@ class CLIChatDebug:
                     # Comandos especiales
                     if query.lower() == "?":
                         self.print_help()
+                    elif query.lower().startswith("cargar "):
+                        pdf_path = query[7:].strip()
+                        self.load_pdf(pdf_path)
+                    elif query.lower() == "reset-docs":
+                        self.reset_documents()
                     elif query.lower() == "docs":
                         print(f"\n{Colors.BOLD}📚 Documentos:{Colors.END} {len(self.documents)} documento(s)\n")
+                        if self.documents:
+                            articles = {}
+                            for doc in self.documents:
+                                art = doc.article_number or "Sin especificar"
+                                articles[art] = articles.get(art, 0) + 1
+                            for art, count in sorted(articles.items()):
+                                print(f"  • {art} ({count} chunk{'s' if count > 1 else ''})")
+                            print()
                     elif query.lower() == "grafos":
                         print(f"\n{Colors.BOLD}📊 Grafos:{Colors.END} Grafo principal cargado\n")
                     elif query.lower() == "grafo":
