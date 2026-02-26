@@ -179,18 +179,12 @@ class LegalAgentCodigoTrabajo:
     
     def normalize_input(self, user_query: str) -> str:
         """
-        Normaliza la query del usuario
+        Normaliza la query del usuario - SOLO lowercase y cleanup
         
-        - Convierte a minúsculas
-        - Expande sinónimos
-        - Eliminacaracteres especiales
+        No modifica la query, apenas la prepara para análisis
         """
+        # Solo lowercase y trim
         query = user_query.lower().strip()
-        
-        # Expandir sinónimos
-        for synonym, replacement in self.LEGAL_SYNONYMS.items():
-            query = query.replace(synonym, replacement)
-        
         return query
     
     def extract_topics(self, user_query: str) -> List[str]:
@@ -198,14 +192,23 @@ class LegalAgentCodigoTrabajo:
         Extrae tópicos del Código de la query del usuario
         
         Retorna lista de tópicos (ej: ["jornada", "descanso"])
+        Usa sinónimos para buscar pero NO modifica la query original
         """
         normalized = self.normalize_input(user_query)
         topics = []
         
-        # Búsqueda simple por keywords
+        # Búsqueda simple por keywords - sin modificar query
         for topic_keyword in self.TOPIC_TO_ARTICLES.keys():
             if topic_keyword in normalized:
                 topics.append(topic_keyword)
+        
+        # También buscar por sinónimos (mapeo inverso)
+        # Si encontramos un sinónimo, agregamos su reemplazo como tópico
+        for synonym, replacement in self.LEGAL_SYNONYMS.items():
+            if synonym in normalized and replacement not in topics:
+                # Verificar que el reemplazo es un tópico válido
+                if replacement in self.TOPIC_TO_ARTICLES:
+                    topics.append(replacement)
         
         return topics
     

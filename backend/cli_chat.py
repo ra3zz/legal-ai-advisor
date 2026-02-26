@@ -40,6 +40,7 @@ class CLIChat:
         self.history = []
         self.agent = None
         self.loaded_graphs = {}  # {nombre: ruta}
+        self.debug_mode = False  # Modo verbose para ver workflow completo
         self.load_documents()
         self.load_knowledge_graph()
         self.load_agent()
