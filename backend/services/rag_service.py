@@ -101,6 +101,26 @@ class RAGService:
         return matches / len(query_terms)
     
     @staticmethod
+    @staticmethod
+    def extract_article_number(text: str) -> str:
+        """
+        Extrae número de artículo del texto (ej: "Art. 21" → "21")
+        """
+        import re
+        # Buscar patrones: Art. 21, Art 21, Artículo 21
+        patterns = [
+            r'Art\.\s*(\d+(?:\s*(?:bis|ter|quáter))?)',  # Art. 21 bis
+            r'Artículo\s+(\d+(?:\s*(?:bis|ter|quáter))?)',
+            r'Art\s+(\d+(?:\s*(?:bis|ter|quáter))?)'
+        ]
+        
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                return match.group(1).strip()
+        
+        return None
+    
     def process_pdf(pdf_path: str, source_name: str = None) -> Dict:
         """
         Procesa PDF completo: extrae → chunking → embeddings → BD
@@ -124,17 +144,21 @@ class RAGService:
             print(f"   • {len(chunks)} chunks creados")
             
             # Guardar en BD con embeddings
-            print(f"   • Generando embeddings...")
+            print(f"   • Generando embeddings y asociando artículos...")
             db = SessionLocal()
             saved = 0
             
             for i, chunk in enumerate(chunks):
                 try:
+                    # Extraer número de artículo del chunk
+                    article_num = RAGService.extract_article_number(chunk)
+                    
                     emb = embed_text(chunk)
                     doc = Document(
                         title=f"{source_name} - Parte {i+1}/{len(chunks)}",
                         content=chunk,
                         source=source_name,
+                        article_number=article_num,  # ← AHORA se asigna
                         chunk_index=i,
                         embedding=json.dumps(emb)
                     )
